@@ -1,0 +1,181 @@
+<app-progress-bar *ngIf="loading"> </app-progress-bar>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="list-users.component.css">
+  <title></title>
+</head>
+
+
+<body>
+
+
+
+
+  <section>
+    <div class="container">
+      <!--Profile Card 3-->
+      <div class="col" *ngFor="let user of listUsers">
+        <div class="card profile-card-3">
+          <div class="background-block">
+            <img [src]="backLink" alt="profile-sample1" class="background" />
+          </div>
+          <div class="profile-thumb-block">
+            <img [src]="logoLink" alt="profile-image" class="profile" />
+          </div>
+          <div class="card-content">
+      
+            <style>
+              table tbody tr td:last-child {
+                width: calc(50px + 100px);
+              }
+
+              table tbody tr td:first-child {
+                padding-right: 60px;
+              }
+            </style>
+            <table
+              style=" width: calc(80% + 80px); text-align: left; display: flex; justify-content: flex-end; align-items: center; margin-left: 10px;">
+
+              <thead>
+                <tr>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <p class="T_Nombre" style="font-family:'Kanit', sans-serif">{{user.businessName}}</p>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td>
+                    <h1>
+                      <p class="SubTitulo" style="font-family:'Kanit', sans-serif; padding-left: 35px;">
+                        {{user.youtubeLink}}</p>
+                    </h1>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+                <tr>
+                  <td>
+                    <p class="DatosExtra" style="font-family:'Kanit', sans-serif; ">Tel: {{user.businessPhone}}</p>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td><a target="_blank" href="{{user.businessWebsite}}" class="SubTitulo"
+                      style="font-family:'Kanit', sans-serif; color: #4c6bdc;padding-left: 60px;">{{user.businessWebsite}}</a>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <div style=" text-align: right;">
+                    <td><a href="{{user.facebookLink}}" target="_blank"><i class="fa fa-facebook"></i></a></td>
+                  </div> <!--Facebook-->
+                </tr>
+                <tr>
+                  <td>
+                    <p class="DatosExtra" style="font-family:'Kanit', sans-serif">{{user.businessEmail}} </p>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <div style=" text-align: right;">
+                    <td> <a href="{{user.twitterLink}}" target="_blank"> <i class="fa fa-twitter"></i></a></td>
+                  </div> <!--TWITTER-->
+                </tr>
+                <tr>
+                  <td>
+                    <p class="DatosExtra" style="font-family:'Kanit', sans-serif;">{{user.businessAddress}}</p>
+                  </td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <div style=" text-align: right;">
+                    <td><a class="SubTitulo" href="{{user.linkedinLink}}" target="_blank"> <i
+                          class="fa fa-linkedin"></i></a></td>
+                  </div> <!--LINKEDIN-->
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </section>
+</body>
+
+</html>
+
+<div *ngIf="!loading">
+
+  <div class="container mt-4">
+    <div class="card-content contenido">
+      <h2 class="card-title contenido_tittle" *ngIf="listUsers.length == 0">¡Crea tu tarjeta de presentación!</h2>
+      <h3 class="card-title contenido_instruction" *ngIf="listUsers.length == 0">¿Qué se necesita?</h3>
+      <ul>
+        <li *ngIf="listUsers.length == 0">
+          <h5 class="contenido_first" *ngIf="listUsers.length == 0">Es necesario llenar el formulario y rellenar tus
+            datos.</h5>
+        </li>
+        <li *ngIf="listUsers.length == 0">
+          <h5 class="contenido_first" *ngIf="listUsers.length == 0">Puedes acceder a tu tarjeta a traves de tu id que se
+            te proporcionará.</h5>
+        </li>
+        <li *ngIf="listUsers.length == 0">
+          <h5 class="contenido_first" *ngIf="listUsers.length == 0">Foto de perfil y fondo totalmente personalizables.</h5>
+        </li>
+
+        <button *ngIf="listUsers.length == 0" type="button" class="btn btn-dark mt-4 " style="font-size: large; "
+          routerLink="/add">Crear nueva</button>
+        <button *ngIf="listUsers.length == 0" type="button" class="btn btn-info mt-4 "
+          style="font-size: large; margin-left: 15px;" routerLink="/188922">Vista previa</button>
+      </ul>
+      <h2 style="font-size: 14px; font-weight: bold; color: gray;" class="marca" *ngIf="listUsers.length == 0">
+        Aplicación desarrollada por: </h2>
+      <ul>
+        <li *ngIf="listUsers.length == 0">
+          <h2 style="font-size: 12px; color: gray;">T.S.U José Teodosio Ordoñez López
+          </h2>
+        </li>
+        <li *ngIf="listUsers.length == 0">
+          <h2 style="font-size: 12px; color: gray;">T.S.U Brayan Alejandro Canul Tamay
+          </h2>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
